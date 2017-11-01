@@ -1,0 +1,16 @@
+/* Libc.edl - EDL sample for trusted C library. */
+
+enclave {
+    
+    from "sgx_tstdc.edl" import sgx_oc_cpuidex;
+
+    /* 
+     * A subset of the C99 standard is supported as well as SGX customized functions: 
+     *  sgx_cpuid, etc.
+     */
+
+    trusted {
+        public long ecall_sum([in,count=size] int *list, long size); 
+        public long ecall_sum_nocopy(long list_addr, long size); 
+    };
+};
