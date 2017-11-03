@@ -27,6 +27,7 @@ void resume(void* loaded_so_handle) {
 }
 
 void e_return(void* exit_point) {
+printf("                     \n");
 //printf("TT: inside e_return()\n");
     __asm__ __volatile__ ("mov %0, %%rbx\n\t"
                   "movl $0x04, %%eax\n\t" // EEXIT
@@ -37,7 +38,7 @@ void e_return(void* exit_point) {
                          //when no operand, just two ::! the following line needs to be commented out
                          //: //what is changed by the assembly code: memory is changed.
                   );
-//printf("TT: by end of e_return()\n");
+printf("TT: by end of e_return()\n");
 }
 
 #ifdef DLL_APP
@@ -55,17 +56,17 @@ void _entry_point(void){
                          :
                          );
 
-#ifdef DEBUG
-printf("TT: inside _entry_point: user_entry_point:%p, exit:%p, rt_args:%p\n", user_entry_point, ptr_exit, ptr_rt_args);
-#endif
+//#ifdef DEBUG
+//printf("TT: inside _entry_point: user_entry_point:%p, exit:%p, rt_args:%p\n", user_entry_point, ptr_exit, ptr_rt_args);
+//#endif
 //keep in mind at this point of time, malloc is already "resolved" to glibc; a later dlopen() will NOT override malloc symbol. Thus, here, to redirect malloc symbol (away from malloc@glibc) to malloc@lib_enclave.c in user_entry_point(), we need to dlsym and manually override the malloc symbol.
     //static void* (*malloc)(size_t) = (void* (*)(size_t)) dlsym(ptr_enclave->handle_so, "malloc"); //again, malloc@lib_enclave.c can not be found in rt symbol table.
     //static void (*free)(void *) = (void (*)(void *))dlsym(ptr_enclave->handle_so, "free");
     //free(malloc(10));
     user_entry_point(ptr_rt_args);
-#ifdef DEBUG
-printf("TT: inside _entry_point %d\n", 10);
-#endif
+//#ifdef DEBUG
+//printf("TT: inside _entry_point %d\n", 10);
+//#endif
     e_return(ptr_exit);
 }
 

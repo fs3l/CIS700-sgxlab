@@ -21,18 +21,6 @@ int main(){
 	List listc;
 	listc.value = list;
 	listc.size = 8;
-	/*Bubble Sort*/
-	args.plist = &listc;
-	args.size = 8;
-	
-	enclave_mem_image* enclave_handle_bsort;
-
-	enclave_handle_bsort = dload_enclave_so("./bin/enclave_bsort.so");
-	
-	call_enclave(enclave_handle_bsort, &args);
-	
-	dunload_enclave_so(enclave_handle_bsort);
-
 
 	/*Merge Sort*/
 	args.plist = &listc;
@@ -45,6 +33,19 @@ int main(){
 	call_enclave(enclave_handle_msort, &args);
 	
 	dunload_enclave_so(enclave_handle_msort);
+
+	/*Bubble Sort*/
+	args.plist = &listc;
+	args.size = 8;
+	
+	enclave_mem_image* enclave_handle_bsort;
+
+	enclave_handle_bsort = dload_enclave_so("./bin/enclave_bsort.so");
+	
+	call_enclave(enclave_handle_bsort, &args);
+	
+	dunload_enclave_so(enclave_handle_bsort);
+
 
 	/*Quick Sort*/
 

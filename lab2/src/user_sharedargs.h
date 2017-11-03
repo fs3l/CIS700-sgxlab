@@ -15,14 +15,14 @@ public:
 	int& operator[](int k){
 		if(k<0 || k>=size)
 		  throw std::out_of_range("invalid index"); 
-	        printf("(%d)  ",k);
+	        printf("(%d) ",k);
 		return value[k];
 	}
 		
     void printList(List* list, int size){
 	printf("\n");
 	for(int i=0; i<size; i++){
-		printf("%d ", (*list)[i]);
+		printf("%d  ", (*list)[i]);
 	}
 	printf("\n");
 }

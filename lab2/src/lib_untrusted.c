@@ -97,7 +97,7 @@ void call_enclave(enclave_mem_image* which_enclave, void* args) {
   //char a[4];
 
 #ifdef DEBUG
-  printf("TT: base:%p, _entry_point:%p, diff: %ld, args: %p\n", baseaddr, local_entry_point,  (long)local_entry_point - (long)baseaddr, args);
+//  printf("TT: base:%p, _entry_point:%p, diff: %ld, args: %p\n", baseaddr, local_entry_point,  (long)local_entry_point - (long)baseaddr, args);
   const int LINE_SIZE = 17;
   char * aline = (char*)malloc(LINE_SIZE * sizeof(char)); 
   //the following throws stack_smashing detected
@@ -117,6 +117,6 @@ void call_enclave(enclave_mem_image* which_enclave, void* args) {
 #endif
   which_enclave->rt_args = args;
   e_enter(local_entry_point, which_enclave);
-  printf("end of call_enclave()\n");
+//  printf("end of call_enclave()\n");
 }
 
