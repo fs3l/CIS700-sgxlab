@@ -7,10 +7,8 @@
  * This file contains implementation of bubble sort
  */
 
-void bubbleSort(List* list, int size){
+void bubbleSort(List list, int size){
 	/* TODO: task 2 code here */
-        // Remove print below when you fill your code
-        printf("Bubble sort code does not finish\n");
 }
 
 void user_entry_point(const void* args){
@@ -21,12 +19,8 @@ void user_entry_point(const void* args){
 	printf("Origin List: [index is show as: (index)]");
 	list->printList(list, size);
 	
-	bubbleSort(list, size);
+	bubbleSort(*list, size);
 	printf("\nSorted List:");
 	list->printList(list, size);
-	
 }
-
-
-
 

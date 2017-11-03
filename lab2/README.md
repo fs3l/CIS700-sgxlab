@@ -71,20 +71,26 @@ List * lptr;
 
 ##### Bubble sort/merge sort with access history of indices
 
-1. Task 1 is about implementing your merge sort by filling `merge()` and `divide()`, and observing dependent(independent) indices access trace. Try to input multiple sets of array to see the difference.
+1. Task 1: implement a merge sort in the provided function `mergeSort()` (in file `src/msort.cpp`).
+    - Observe the printed access trace, which is interpreted below:
+        - The number inside the parenthesis is the index of an array access, and the number outside is the element value of the access. For instance, `(8) 5 (2) 3` are two accesses, with the first on array index  `8` of value `5` and second on array index `2` of avalue `3`.
+    - Observe whether the access trace changes when you feed different inputs.
+ 
 
-2. Task 2 is about implementing your bubble sort, and observing dependent(independent) indices access trace. Try to input different sets of array, observe the difference
-   * Expected output:
-        - Assume input are 4 numbers, {10,30,20,50}, and your algorithm should print out the indices access trace: 
-            `(0) (1) (1) (2) (1) (1) (2) (2) (2) (3) (0) (1) (1) (2) (0) (1)`
-        - Operation types for each index are below, you do not need to print out them. They are just here to help you understand this example:[C: comparison, R: read, W: write]
-            ` C   C   C   C   R   W   R   W   C   C   C   C   C   C   C   C `
-   * [Bonus] If you get to see different traces of your bubble-sort impl., revise your implementation so that the traces under different inputs are the same.
+2. Task 2: implement a bubble sort in the provided function `bubbleSort()` (in file `src/bsort.cpp`).
+    - Observe the printed access trace
+    - Observe whether the access trace changes when you feed different inputs.
      
 #### Homework Lab (3): Other algorithms
-        
-3. In Task 3, choose one of the two algorithms to implement (randomized quick sort or edit distance), and observe the access trace.
-    * Try to run at least two different arrays as input. Observe the output difference between different inputs. Explain your found.
-          - For instance, [18,17,16,15,14,13,12,11] and [18,11,12,17,16,14,13,15]
-    * [Bonus] Discuss the Side-channel leakage you found.
-          - Analyse whether the trace leaky? If it is, think of an attack scheme with high success rate or even a protection scheme; if not, justify your claim
+ 
+3. Task 3: Follow up on Task 1, 2.
+    - If you get to see different traces of your merge-sort (Task 1), think of an "attack" solution that one can extract secret from the trace.
+    - If you get to see different traces of your bubble-sort (Task 2), think of a "protection" solution by revising your implementation so that the traces under different inputs are the same.
+4. In Task 4, choose one of the two algorithms to implement (randomized quick sort or edit distance), and observe the access trace.
+    - Observe the printed access trace
+    - Observe whether the access trace changes when you feed different inputs.
+    * [Bonus] Describe if your implementation produces data-dependent (or oblivious) traces. If yes, 
+        - [A] think of an "attack" solution that one can extract secret from the trace.
+        - [B] think of a "protection" solution to make the trace data-independent. 
+
+

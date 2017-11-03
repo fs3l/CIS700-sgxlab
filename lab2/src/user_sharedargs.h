@@ -4,11 +4,11 @@
 //shared between untrusted code and enclave code
 class List {
 public:
-	int* value;
+	int* array;
 	int size;
 
 	List(){
-		value = NULL;
+		array = NULL;
 
 	}
 
@@ -16,7 +16,7 @@ public:
 		if(k<0 || k>=size)
 		  throw std::out_of_range("invalid index"); 
 	        printf("(%d) ",k);
-		return value[k];
+		return array[k];
 	}
 		
     void printList(List* list, int size){

@@ -19,7 +19,7 @@ int main(){
 	}
 
 	List listc;
-	listc.value = list;
+	listc.array = list;
 	listc.size = 8;
 
 	/*Merge Sort*/
@@ -30,7 +30,7 @@ int main(){
 	
 	enclave_handle_msort = dload_enclave_so("./bin/enclave_msort.so");
 
-	call_enclave(enclave_handle_msort, &args);
+//	call_enclave(enclave_handle_msort, &args);
 	
 	dunload_enclave_so(enclave_handle_msort);
 

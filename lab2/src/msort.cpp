@@ -7,13 +7,7 @@
 #define free lib_free
 
 
-void merge(/* TODO: task 1*/){
-    /* TODO: task 1 code here*/
-    // Remove printf below when you fill your code
-    printf("Merge sort does not finish\n");
-}
-
-void divide(List* list, int l, int r){
+void mergeSort(List list, int l, int r){
     /* TODO: task 1 code here */
 }
 
@@ -26,7 +20,7 @@ void user_entry_point(const void* args){
 	printf("Origin List: [index is show as: (index)]");
 	list->printList(list, size);
 	
-	divide(list, 0, size-1);
+	mergeSort(*list, 0, size-1);
 
 	printf("\nSorted List:");
 	list->printList(list, size);
