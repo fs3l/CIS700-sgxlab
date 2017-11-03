@@ -21,7 +21,7 @@ lsmod | grep sgx #help you check whether module insert successfully
 ```
 4. Run sample code
 ```bash
-cd ~/sgx-emulator/sgx.ko
+cd ~/sgx-emulator
 make #compile user code
 make r #run user code
 ```
@@ -83,7 +83,7 @@ List * lptr;
      
 #### Homework Lab (3): Other Sorting algorithms
         
-3. Task 3 is about implementing randomized quick sort, and observing access trace.
+3. In Task 3, choose one of two algorithms to implement (randomized quick sort or edit distance), and observe the access trace.
     * Try to run at least two different arrays as input. Observe the output difference between different inputs. Explain your found.
           - For instance, [18,17,16,15,14,13,12,11] and [18,11,12,17,16,14,13,15]
 
