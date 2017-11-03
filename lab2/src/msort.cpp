@@ -7,31 +7,29 @@
 #define free lib_free
 
 
-void merge(/* TODO: task 2*/){
-    /* TODO: task 2 code here*/
-
+void merge(/* TODO: task 1*/){
+    /* TODO: task 1 code here*/
+    // Remove printf below when you fill your code
+    printf("Merge sort does not finish\n");
 }
 
 void divide(List* list, int l, int r){
-    /* TODO: task 2 code here */
+    /* TODO: task 1 code here */
 }
 
 
 
 void user_entry_point(const void* args){
-	printf("\n\n\nMERGE SORT\n");
+	printf("\nMERGE SORT\n");
 	List* list = ((struct sort_args_enclave*) args)->plist;
 	int size = ((struct sort_args_enclave*) args)->size;
-	printf("Origin List:");
+	printf("Origin List: [index is show as: (index)]");
 	list->printList(list, size);
 	
-	printf("\n\n");
 	divide(list, 0, size-1);
-	printf("\n\n");	
 
-	printf("Sorted List:");
+	printf("\nSorted List:");
 	list->printList(list, size);
-	printf("\n\n\n\n");
 }
 
 #undef malloc

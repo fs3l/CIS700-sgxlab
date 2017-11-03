@@ -6,28 +6,25 @@
 
 /* TODO: task 3: homework lab code here */
 
-void printList(List* list, int size){
-	for(int i=0; i<size; i++){
-		printf("%d ", (*list)[i]);
-	}
-	printf("\n");
+
+void quickSort(List *list, int left, int right){
+    /* TODO: task 3 code here */
+    // Remove printf below when you fill your code
+    printf("Quick sort does not finish\n");
 }
 
+
 void user_entry_point(const void* args){
-	printf("\n\n\nQUICK SORT\n");
+	printf("\nQUICK SORT\n");
 	List* list = ((struct sort_args_enclave*)args)->plist;
 	int size = ((struct sort_args_enclave*)args)->size;
 
-	printf("Origin List:");
+	printf("Origin List: [index is show as: (index)]");
 	list->printList(list, size);
 	
-	printf("\n\n");
-        // TODO: your sorting function call here
-	// for example: quickSort(list, 0, size-1);
-	printf("\n\n");	
+	quickSort(list, 0, size-1);
 
-	printf("Sorted List:");
+	printf("\nSorted List:");
 	list->printList(list, size);
 
-	printf("\n\n\n\n");
 }

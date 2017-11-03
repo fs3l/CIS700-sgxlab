@@ -61,7 +61,7 @@ void e_enter(void (* entry_point)(void*), struct enclave_mem_image * which_encla
           "lea (%%rip), %0" //save current instruction pointer
           : "=r" (rip_enter));
 
-printf("TT: begin of e_enter: which_enclave: %p; entry_point: %p, rip_enter:%lx, rt_args: %p\n", which_enclave, entry_point, rip_enter, which_enclave->rt_args);
+//printf("TT: begin of e_enter: which_enclave: %p; entry_point: %p, rip_enter:%lx, rt_args: %p\n", which_enclave, entry_point, rip_enter, which_enclave->rt_args);
 __asm__ __volatile__ ("mov %%rsp, %0\n\t"
 											: "=r"(old_rsp)
 											:
@@ -79,7 +79,7 @@ __asm__ __volatile__ ("mov %%rsp, %0\n\t"
           : "eax", "rbx", "rdx"//"memory"//what is changed by the assembly code: memory is changed.
             //we need two pass BOTH arguments, because one is visible to kernel, rt_args visible to user-space
           );
-printf("TT: end of e_enter()\n");
+//printf("TT: end of e_enter()\n");
 __asm__ __volatile__ ("mov %0, %%rsp\n\t"
 											:
 											: "r"(old_rsp)

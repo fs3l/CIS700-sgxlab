@@ -15,7 +15,7 @@ public:
 	int& operator[](int k){
 		if(k<0 || k>=size)
 		  throw std::out_of_range("invalid index"); 
-	        printf("(index: %d)  ",k);
+	        printf("(%d)  ",k);
 		return value[k];
 	}
 		

@@ -13,7 +13,7 @@ int main(){
 
 	/* Lab 2 list input*/
 	int list[8];
-	printf("Input 8 numbers\n");
+	printf("Input 8 numbers to be sorted:\n");
 	for(int i=0;i<8;i++){
 	    scanf("%d",&list[i]);
 	}
@@ -30,7 +30,6 @@ int main(){
 	enclave_handle_bsort = dload_enclave_so("./bin/enclave_bsort.so");
 	
 	call_enclave(enclave_handle_bsort, &args);
-	printf("Returned from the enclave bsort");
 	
 	dunload_enclave_so(enclave_handle_bsort);
 
@@ -44,7 +43,6 @@ int main(){
 	enclave_handle_msort = dload_enclave_so("./bin/enclave_msort.so");
 
 	call_enclave(enclave_handle_msort, &args);
-	printf("Returned from the enclave msort");
 	
 	dunload_enclave_so(enclave_handle_msort);
 
@@ -58,7 +56,6 @@ int main(){
 	enclave_handle_qsort = dload_enclave_so("./bin/enclave_qsort.so");
 
 	call_enclave(enclave_handle_qsort, & args);
-	printf("Returned from the enclave qsort");
 
 	dunload_enclave_so(enclave_handle_qsort);
 

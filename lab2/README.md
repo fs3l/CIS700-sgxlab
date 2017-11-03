@@ -21,6 +21,7 @@ lsmod | grep sgx #help you check whether module insert successfully
 ```
 4. Run sample code
 ```bash
+cd ~/sgx-emulator/sgx.ko
 make #compile user code
 make r #run user code
 ```
@@ -31,55 +32,60 @@ sudo rmmod sgx
 
 #### Download Lab2
 
-After you downloaded the lab2 folder, you need to load the emulator first. The emulator module is in `~/sgx-emulator/`. Under this directory, run _3. Load the emulator_
-
-
-When loaded successfully, run your code.
+You can try to use shell command to clone lab repository from GitHub.
 ```bash
+git clone https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab.git
+```
+or you may go to [https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab), and download the repository.
+
+After you downloaded the lab2 folder, you can start to finish lab tasks. Each time before compiling your code, you need to **load the emulator first**. Load procedure mentioned above, _3. Load the emulator_ .
+
+When you confirm emulator loaded, you can use command below to compile and run your code.
+```bash
+cd [your lab directory] #you need to navigate to the lab folder
 make #compile client code
 make r #run client code
-dmesg | tail #see kernel output
 ```
 
 #### In-class Lab (2): Leakage of Sorting Algorithms
 
-This lab requires you to complete three sorting algorithms for an array, execute it inside/outside enclave, and observe the data accessing and index referencing differences. The objective of this lab is to help you understand Side-Channel Vulnerability exposed while sorting.
+This lab requires you to complete three sorting algorithms for an array, and observe the data accessing and index referencing differences. The objective of this lab is to help you understand Side-Channel Vulnerability exposed doing sorting.
 
-For your convinience, index print out has been overrided into a Class called `List`. You can use the class as usage of array. For example,
+For your convinience, index accessing trace will be automatically printed out when you try to use a Class called `List`. You can use the class as the similar usage with array. For example,
 
 ```C++
 List list;
 list[0] = 3;
 list[1] = list[2];
+// Indices trace will be printed out
+// (0)(2)(1)
 
 
 List * lptr;
 (*lptr)[0] = 0;
 (*lptr)[2] = (*lptr)[1];
+// Indices trace will be printed out
+// (0)(1)(2)
+
 ```
 
 ##### Bubble sort/merge sort with access history of indices
 
-1. Task 1 is about running your bubble sort outside enclave with an array. Be sure there is no bug in your algorithm.     
-   * Sample output:
-        - If you insert 4 numbers, {10,30,20,50}, and your algorithm should print out the history: 
+1. Task 1 is about implementing your merge sort by filling `merge()` and `divide()`, and observing dependent(independent) indices access trace. Try to input multiple sets of array to see the difference.
+
+2. Task 2 is about implementing your bubble sort, and observing dependent(independent) indices access trace. Try to input different sets of array, observe the difference
+   * Expected output:
+        - Assume input are 4 numbers, {10,30,20,50}, and your algorithm should print out the indices access trace: 
             `(0) (1) (1) (2) (1) (1) (2) (2) (2) (3) (0) (1) (1) (2) (0) (1)`
         - Operation types for each index are below, you do not need to print out them. They are just here to help you understand this example:[C: comparison, R: read, W: write]
             ` C   C   C   C   R   W   R   W   C   C   C   C   C   C   C   C `
-
-2. Task 2 is about running your merge sort 
-    * Finish your merge sort algorithm by completing `merge()` and `divide()`
-    * Sample output:
-        - If you insert 4 numbers, {10,30,20,50}, and your algorithm should print the history: [C: comparison, R: read, W: write]
-           `(0) (1) (2) (3) (0) (2) (1) (2) (2) (1) (1) (2) (1) (3)`
-        - Operation types for each index are below, you do not need to print out them. They are just here to help you understand this example:[C: comparison, R: read, W: write]
-           ` C   C   C   C   C   C   C   C   R   W   R   W   C   C `
-
+   * [Bonus] Harden the seeing of your bubble sort so that under different input it produces indices access trace.
+     
 #### Homework Lab (3): Other Sorting algorithms
         
-3. Task 3 is about implementing your sorting algorithm other than algorithms in in-class lab, and run it inside and outside enclave. You can choose whatever sorting algorithm you like. Such as quick sort, sorting network and heap sort. Please print out the indices compared each time.
+3. Task 3 is about implementing randomized quick sort, and observing access trace.
+    * Try to run at least two different arrays as input. Observe the output difference between different inputs. Explain your found.
+          - For instance, [18,17,16,15,14,13,12,11] and [18,11,12,17,16,14,13,15]
 
-4. Try to run at least two different arrays as input. Try to define the output difference between different inputs.
-    - For instance, [18,17,16,15,14,13,12,11] and [18,11,12,17,16,14,13,15]
-
-5. Discuss the Side-channel leakage you found. Explain your found, and think about methods to protect the vulnerability.
+    * [Bonus] Discuss the Side-channel leakage you found.
+          - Analyse whether the trace leaky? If it is, think of an attack scheme with high success rate or even a protection scheme; if not, justify your claim

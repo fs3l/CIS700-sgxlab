@@ -27,7 +27,7 @@ void resume(void* loaded_so_handle) {
 }
 
 void e_return(void* exit_point) {
-printf("TT: inside e_return()\n");
+//printf("TT: inside e_return()\n");
     __asm__ __volatile__ ("mov %0, %%rbx\n\t"
                   "movl $0x04, %%eax\n\t" // EEXIT
                   ".byte 0x0f,0x01,0xd7" 
@@ -37,7 +37,7 @@ printf("TT: inside e_return()\n");
                          //when no operand, just two ::! the following line needs to be commented out
                          //: //what is changed by the assembly code: memory is changed.
                   );
-printf("TT: by end of e_return()\n");
+//printf("TT: by end of e_return()\n");
 }
 
 #ifdef DLL_APP
@@ -72,13 +72,13 @@ printf("TT: inside _entry_point %d\n", 10);
 
 void* lib_malloc(size_t sz)  __THROW
 {
-    printf("TT: hooked lib_malloc()\n");
+    //printf("TT: hooked lib_malloc()\n");
     //return glibc_malloc(sz);
 }
 
 void lib_free(void *p)  __THROW
 {
-    printf("TT: hooked lib_free()\n");
+    //printf("TT: hooked lib_free()\n");
     //glibc_free(*p);
 }
 
