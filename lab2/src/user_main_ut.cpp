@@ -17,7 +17,7 @@ int main(){
 
 	/* Lab 2 list input*/
 	int list[8];
-	printf("Input 8 numbers to be sorted:\n");
+	printf("\nInput 8 numbers to be sorted:\n");
 	for(int i=0;i<8;i++){
 	    scanf("%d",&list[i]);
 	}
