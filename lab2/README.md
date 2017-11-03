@@ -11,7 +11,7 @@ Module 2: Side-channel Vulnerability and Protection
 #### SGX Emulator (1)
 
 1. Install VirtualBox on your local OS.
-2. Download the prebuilt VirtualBox image: [[Google Drive](https://goo.gl/HsnJh1)]. The login username and password are both `sgx`.
+2. Download the prebuilt VirtualBox image: [[Google Drive](https://goo.gl/3wLLic)]. The login username and password are both `sgx`.
     - Note our emulator currently only supports the setting of *64-bit `Ubuntu 14.04.3 LTS` guest OS in VirtualBox*.
     - Make sure the right Linux version by `uname -r`: `3.19.0-25-generic`
 3. Load the emulator
