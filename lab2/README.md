@@ -93,4 +93,4 @@ List * lptr;
         - [A] think of an "attack" solution that one can extract secret from the trace.
         - [B] think of a "protection" solution to make the trace data-independent. 
 
-![Sort and Side Channel](/sort_side_channel.jpg)
+![Sort and Side Channel](./sort_side_channel.jpg)
