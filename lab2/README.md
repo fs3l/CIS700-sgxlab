@@ -79,13 +79,12 @@ List * lptr;
             `(0) (1) (1) (2) (1) (1) (2) (2) (2) (3) (0) (1) (1) (2) (0) (1)`
         - Operation types for each index are below, you do not need to print out them. They are just here to help you understand this example:[C: comparison, R: read, W: write]
             ` C   C   C   C   R   W   R   W   C   C   C   C   C   C   C   C `
-   * [Bonus] Harden the seeing of your bubble sort so that under different input it produces indices access trace.
+   * [Bonus] If you get to see different traces of your bubble-sort impl., revise your implementation so that the traces under different inputs are the same.
      
-#### Homework Lab (3): Other Sorting algorithms
+#### Homework Lab (3): Other algorithms
         
-3. In Task 3, choose one of two algorithms to implement (randomized quick sort or edit distance), and observe the access trace.
+3. In Task 3, choose one of the two algorithms to implement (randomized quick sort or edit distance), and observe the access trace.
     * Try to run at least two different arrays as input. Observe the output difference between different inputs. Explain your found.
           - For instance, [18,17,16,15,14,13,12,11] and [18,11,12,17,16,14,13,15]
-
     * [Bonus] Discuss the Side-channel leakage you found.
           - Analyse whether the trace leaky? If it is, think of an attack scheme with high success rate or even a protection scheme; if not, justify your claim
