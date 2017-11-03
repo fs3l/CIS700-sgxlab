@@ -11,6 +11,10 @@ void bar(int * ptr_int){
 int main(){
 	struct sort_args_enclave args;
 
+        int task=1;
+	printf("Choose the task to run:\n1 Merge sort\n2 Bubble sort\n3 Quick sort\n");
+	scanf("%d",&task);
+
 	/* Lab 2 list input*/
 	int list[8];
 	printf("Input 8 numbers to be sorted:\n");
@@ -21,45 +25,48 @@ int main(){
 	List listc;
 	listc.array = list;
 	listc.size = 8;
-
-	/*Merge Sort*/
-	args.plist = &listc;
-	args.size = 8;
-
-	enclave_mem_image* enclave_handle_msort;
 	
-	enclave_handle_msort = dload_enclave_so("./bin/enclave_msort.so");
+	if(task == 1){
+		/*Merge Sort*/
+		args.plist = &listc;
+		args.size = 8;
 
-//	call_enclave(enclave_handle_msort, &args);
+		enclave_mem_image* enclave_handle_msort;
 	
-	dunload_enclave_so(enclave_handle_msort);
+		enclave_handle_msort = dload_enclave_so("./bin/enclave_msort.so");
 
-	/*Bubble Sort*/
-	args.plist = &listc;
-	args.size = 8;
+		call_enclave(enclave_handle_msort, &args);
 	
-	enclave_mem_image* enclave_handle_bsort;
-
-	enclave_handle_bsort = dload_enclave_so("./bin/enclave_bsort.so");
+		dunload_enclave_so(enclave_handle_msort);
+	}
+	else if(task == 2){
+		/*Bubble Sort*/
+		args.plist = &listc;
+		args.size = 8;
 	
-	call_enclave(enclave_handle_bsort, &args);
+		enclave_mem_image* enclave_handle_bsort;
+
+		enclave_handle_bsort = dload_enclave_so("./bin/enclave_bsort.so");
 	
-	dunload_enclave_so(enclave_handle_bsort);
-
-
-	/*Quick Sort*/
-
-	args.plist = &listc;
-	args.size = 8;
-
-	enclave_mem_image* enclave_handle_qsort;
+		call_enclave(enclave_handle_bsort, &args);
 	
-	enclave_handle_qsort = dload_enclave_so("./bin/enclave_qsort.so");
+		dunload_enclave_so(enclave_handle_bsort);
+	}
+	else if(task == 3){
+		/*Quick Sort*/
 
-	call_enclave(enclave_handle_qsort, & args);
+		args.plist = &listc;
+		args.size = 8;
 
-	dunload_enclave_so(enclave_handle_qsort);
+		enclave_mem_image* enclave_handle_qsort;
+	
+		enclave_handle_qsort = dload_enclave_so("./bin/enclave_qsort.so");
 
+		call_enclave(enclave_handle_qsort, & args);
+
+		dunload_enclave_so(enclave_handle_qsort);
+
+	}
 }
 
 
