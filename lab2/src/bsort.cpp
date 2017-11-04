@@ -7,20 +7,20 @@
  * This file contains implementation of bubble sort
  */
 
-void bubbleSort(List list, int size){
+void bubbleSort(TrackedList list, int size){
 	/* TODO: task 2 code here */
 }
 
 void user_entry_point(const void* args){
 	printf("\nBUBBLE SORT:\n");
 //	int* list = ((struct sort_args_enclave*) args)->plist->value;
-	List* list = ((struct sort_args_enclave*) args)->plist;
+	TrackedList* list = ((struct sort_args_enclave*) args)->plist;
 	int size = ((struct sort_args_enclave*) args)->size;
-	printf("Origin List: [index is show as: (index)]");
-	list->printList(list, size);
+	printf("Origin TrackedList: [index is show as: (index)]");
+	list->printTrackedList(list, size);
 	
 	bubbleSort(*list, size);
-	printf("\nSorted List:");
-	list->printList(list, size);
+	printf("\nSorted TrackedList:");
+	list->printTrackedList(list, size);
 }
 

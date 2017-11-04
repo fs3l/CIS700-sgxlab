@@ -2,12 +2,12 @@
 #define USER_SHAREDARGS_H
 #include<stdexcept>
 //shared between untrusted code and enclave code
-class List {
+class TrackedList {
 public:
 	int* array;
 	int size;
 
-	List(){
+	TrackedList(){
 		array = NULL;
 
 	}
@@ -19,7 +19,7 @@ public:
 		return array[k];
 	}
 		
-    void printList(List* list, int size){
+    void printTrackedList(TrackedList* list, int size){
 	printf("\n");
 	for(int i=0; i<size; i++){
 		printf("%d  ", (*list)[i]);
@@ -36,7 +36,7 @@ struct args_enclave {
 struct sort_args_enclave{
 	int size;
 	//	int* plist;
-	List *plist;
+	TrackedList *plist;
 };
 
 struct enclave_mem_image {

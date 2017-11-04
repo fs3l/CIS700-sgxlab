@@ -51,17 +51,17 @@ make r #run client code
 
 This lab requires you to complete three sorting algorithms for an array, and observe the data accessing and index referencing differences. The objective of this lab is to help you understand Side-Channel Vulnerability exposed doing sorting.
 
-For your convinience, index accessing trace will be automatically printed out when you try to use a Class called `List`. You can use the class as the similar usage with array. For example,
+For your convinience, index accessing trace will be automatically printed out when you try to use a Class called `TrackedList`. You can use the class as the similar usage with array. For example,
 
 ```C++
-List list;
+TrackedList list;
 list[0] = 3;
 list[1] = list[2];
 // Indices trace will be printed out
 // (0)(2)(1)
 
 
-List * lptr;
+TrackedList * lptr;
 (*lptr)[0] = 0;
 (*lptr)[2] = (*lptr)[1];
 // Indices trace will be printed out
@@ -71,13 +71,13 @@ List * lptr;
 
 ##### Bubble sort/merge sort with access history of indices
 
-1. Task 1: implement a merge sort in the provided function `mergeSort()` (in file `src/msort.cpp`).
+1. Task 1: implement a merge sort in the stub function `mergeSort()` (in file `src/msort.cpp`).
     - Observe the printed access trace, which is interpreted below:
         - The number inside the parenthesis is the index of an array access, and the number outside is the element value of the access. For instance, `(8) 5 (2) 3` are two accesses, with the first on array index  `8` of value `5` and second on array index `2` of avalue `3`.
     - Observe whether the access trace changes when you feed different inputs.
- 
+    - For simplicity, you only need to consider the case of 8 element array in all tasks of this lab.
 
-2. Task 2: implement a bubble sort in the provided function `bubbleSort()` (in file `src/bsort.cpp`).
+2. Task 2: implement a bubble sort in the stub function `bubbleSort()` (in file `src/bsort.cpp`).
     - Observe the printed access trace
     - Observe whether the access trace changes when you feed different inputs.
      
