@@ -53,7 +53,7 @@ In a computation, data obliviousness means the data access from the computation 
 This lab is for you students to understand the data obliviousness of common sorting algorithms, including bubble sort, merge sort, etc. This data-dependency will further make the side-channel attack possible in the enclave computation.
 
 To be specific, this lab requires you to complete some sorting algorithms on an array, and observe the data access trace in array indices, and more importantly, whether the trace differs when input array changes (that is, obliviousness). 
-For your convenience, index accessing trace will be automatically printed out when you try to use a Class called `TrackedList`. You can use the class as the similar usage with array. For example,
+For your convinience, index accessing trace will be automatically printed out when you try to use a Class called `TrackedList`. You can use the class as the similar usage with array. For example,
 
 ```C++
 TrackedList list;
@@ -74,7 +74,7 @@ TrackedList * lptr;
 
 1. Task 1: implement a merge sort in the stub function `mergeSort()` (in file `src/msort.cpp`).
     - Observe the printed access trace, which is interpreted below:
-        - The number inside the parenthesis is the index of an array access, and the number outside is the element value of the access. For instance, `(8) 5 (2) 3` are two accesses, with the first on array index  `8` of value `5` and second on array index `2` of value `3`.
+        - The number inside the parenthesis is the index of an array access, and the number outside is the element value of the access. For instance, `(8) 5 (2) 3` are two accesses, with the first on array index  `8` of value `5` and second on array index `2` of avalue `3`.
     - Observe whether the access trace changes when you feed different inputs.
     - For simplicity, you only need to consider the case of 8 element array in all tasks of this lab.
 
@@ -84,9 +84,9 @@ TrackedList * lptr;
      
 #### Homework Lab (3): Other algorithms
  
-In the in-class exercise, we observe the data obliviousness of merge/bubble sort. In this homework, we try to extend the understanding from obliviousness to side-channel attacks.
+In the in-class exericise, we observe the data obliviousness of merge/bubble sort. In this homework, we try to extend the understanding from obliviousness to side-channel attacks.
 
-To make things concrete, let's talk with a "real" scenario. Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The adversary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
+To make things concrete, let's talk with a "real" scenario. Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The advesary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
 
 ![Sort and Side Channel](./sorting_side_channel.jpg)
 
