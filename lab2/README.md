@@ -49,8 +49,10 @@ make r #run client code
 
 #### In-class Lab (2): Leakage of Sorting Algorithms
 
-This lab requires you to complete three sorting algorithms for an array, and observe the data accessing and index referencing differences. The objective of this lab is to help you understand Side-Channel Vulnerability exposed doing sorting.
+In a computation, data obliviousness means the data access from the computation is the same no matter what values the input data takes.
+This lab is for you students to understand the data obliviousness of common sorting algorithms, including bubble sort, merge sort, etc. This data-dependency will further make the side-channel attack possible in the enclave computation.
 
+To be specific, this lab requires you to complete some sorting algorithms on an array, and observe the data access trace in array indices, and more importantly, whether the trace differs when input array changes (that is, obliviousness). 
 For your convinience, index accessing trace will be automatically printed out when you try to use a Class called `TrackedList`. You can use the class as the similar usage with array. For example,
 
 ```C++
@@ -66,10 +68,9 @@ TrackedList * lptr;
 (*lptr)[2] = (*lptr)[1];
 // Indices trace will be printed out
 // (0)(1)(2)
-
 ```
 
-##### Bubble sort/merge sort with access history of indices
+##### Obliviousness in bubble sort/merge sort
 
 1. Task 1: implement a merge sort in the stub function `mergeSort()` (in file `src/msort.cpp`).
     - Observe the printed access trace, which is interpreted below:
@@ -83,6 +84,13 @@ TrackedList * lptr;
      
 #### Homework Lab (3): Other algorithms
  
+In the in-class exericise, we observe the data obliviousness of merge/bubble sort. In this homework, we try to extend the understanding from obliviousness to side-channel attacks.
+
+To make things concrete, let's talk with a "real" scenario. Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The advesary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
+
+![Sort and Side Channel](./sorting_side_channel.jpg)
+
+
 3. Task 3: Follow up on Task 1, 2.
     - If you get to see different traces of your merge-sort (Task 1), think of an "attack" solution that one can extract secret from the trace.
     - If you get to see different traces of your bubble-sort (Task 2), think of a "protection" solution by revising your implementation so that the traces under different inputs are the same.
@@ -93,4 +101,3 @@ TrackedList * lptr;
         - [A] think of an "attack" solution that one can extract secret from the trace.
         - [B] think of a "protection" solution to make the trace data-independent. 
 
-![Sort and Side Channel](./sorting_side_channel.jpg)
