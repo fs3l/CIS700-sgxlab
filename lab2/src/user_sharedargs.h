@@ -12,6 +12,11 @@ public:
 
 	}
 
+	TrackedList(int n){
+	    array = new int[n];
+	    size = n;
+	}
+
 	int& operator[](int k){
 		if(k<0 || k>=size)
 		  throw std::out_of_range("invalid index"); 
