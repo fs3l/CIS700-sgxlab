@@ -22,7 +22,7 @@ int main(){
         scanf("%d",&list[i]);
     }
 
-    List listc;
+    TrackedList listc;
     listc.array = list;
     listc.size = 8;
     
