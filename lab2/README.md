@@ -86,7 +86,7 @@ TrackedList * lptr;
  
 In the in-class exercise, we observe the data obliviousness of merge/bubble sort. In this homework, we try to extend the understanding from obliviousness to side-channel attacks.
 
-To make things concrete, let's talk with a "real" scenario. Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The adversary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
+To make things concrete, let's talk about a "real" scenario. Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The adversary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
 
 ![Sort and Side Channel](./sorting_side_channel.jpg)
 
