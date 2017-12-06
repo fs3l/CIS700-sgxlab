@@ -38,3 +38,4 @@ Lab Handout
 
 * Module 2: Side-channel Vulnerability and Protection [[lab 2](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab2/README.md)]
 
+* Module 3: Blockchain mining [[lab 3](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab3/README.md)]
