@@ -1,3 +1,5 @@
+SGX Labs
+===
 
 Setup 
 ---
@@ -37,5 +39,8 @@ Lab Handout
 * Module 1: Understanding SGX Memory Protection [[lab 1](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab1/README.md)]
 
 * Module 2: Side-channel Vulnerability and Protection [[lab 2](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab2/README.md)]
+
+BitCoin/Blockchain Labs
+===
 
 * Module 3: Blockchain mining [[lab 3](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab3/README.md)]
