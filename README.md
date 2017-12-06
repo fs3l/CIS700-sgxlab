@@ -33,7 +33,7 @@ make r #run user code
 sudo rmmod sgx
 ```
 
-Lab Handout
+Labs
 ---
 
 * Module 1: Understanding SGX Memory Protection [[lab 1](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab1/README.md)]
