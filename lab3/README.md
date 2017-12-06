@@ -1,4 +1,4 @@
-Module 3: Ethereum Mining on Private Network
+Module 3: Blockchain Mining on Local Network
 ===
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that perdically instructs some miner to conduct transactions with other miners.
@@ -39,7 +39,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 
 ### 2. Join the Blockchain network
 
-**2.1 Connect to the Blockchain Gateway (Bootnode)**: Every blockchain starts with the genesis block. When you run geth with default settings for the first time, the main net genesis block is committed to the database. For a private network, you usually want a different genesis block. We have a pre-defined custom `genesis.json` file. The `config` section ensures that certain protocol upgrades are immediately available. The `alloc` section pre-funds accounts, which is currently empty. Following the instructions below to run geth.
+**2.1 Connect to the Blockchain Gateway (Bootnode)**: Every blockchain starts with the genesis block. When you run geth with default settings for the first time, the main net genesis block is committed to the database. For our local network, you usually want a different genesis block. We have a pre-defined custom `genesis.json` file. The `config` section ensures that certain protocol upgrades are immediately available. The `alloc` section pre-funds accounts, which is currently empty. Following the instructions below to run geth.
 
 ```
 $ mkdir <data-dir>
@@ -47,7 +47,7 @@ $ geth --datadir <data-dir> init genesis.json  # create a database that uses thi
 $ geth --datadir <datadir> --networkid 7002017 --bootnodes enode://00a9f01578deb7088ae17d36c081051033e779cb42734db6c5edb683a56e81eb1540af856f40bffdde6e81457d77c9b37951f18a350a80a77ac30e386d2c44dc@128.230.208.73:30301 console 2>console.log
 ```
 
-In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
+In the last command above, `--networkid` specify the local network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
 
 **2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
 	
