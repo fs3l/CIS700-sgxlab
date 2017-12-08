@@ -3,7 +3,7 @@ Module 3: Blockchain Mining on Local Network
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
 
-Prerequisite
+Prerequiresite
 ---
 
 1. Linux shell commands
@@ -14,7 +14,7 @@ Lab Environment Setup
 
 ### 1. Download Ethereum clients
 
-There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html) implementations, we will use the `Go` implementation, that is, `Geth`, for this lab. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
+There are serveral `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html) implementations, we will use the `Go` implementaion, that is, `Geth`, for this lab. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
 
 ***Ubuntu Users***
 Here is the instructions to install the `Geth` for Ubuntu.
@@ -114,15 +114,15 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 
 **Task 3:** 
 
-1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipient (seller) of the transaction. Optionally you can find other students' account on this [[document](https://docs.google.com/document/d/1nI3o1YH-rkAto9iysuExh5PbnFgCAgjFifturm2nQzg/edit?usp=sharing)];
+1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipent (sellor) of the transaciton. Optionally you can find other students' account on this [[document](https://docs.google.com/document/d/1nI3o1YH-rkAto9iysuExh5PbnFgCAgjFifturm2nQzg/edit?usp=sharing)];
 
 2. Show whether transaction `tx5` is included in the Blockchain; if not wait for a while, check again.
 
 Note 1: The above command will return a hash tag which served as the ID of the transaction, you could use that ID to query the transaction in the future.
 
-Note 2: [Ether](http://www.ethdocs.org/en/latest/ether.html) is the name of the currency used within Ethereum. Wei is the smallest unit in Ethereum. 1 Ether = 10^18 Wei. The account balance and transfer amount are shown in Wei. You can use the converter utility web3.fromWei and web3.toWei to convert between Ether and Wei. 
+Note 2: [Ether](http://www.ethdocs.org/en/latest/ether.html) is the name of the currency used within Ethereuem. Wei is the smallest unit in Ethereum. 1 Ether = 10^18 Wei. The account balance and transfer amount are shown in Wei. You can use the converter utility web3.fromWei and web3.toWei to convert between Ether and Wei. 
 
-Note 3: Before sending transactions, you may need to unlock your personal wallet/account and input passphrase. Example:
+Note 3: Before sending transactions, you may need to unlock your personnal wallet/account and input passphrase. Example:
 
 ```
 personal.unlockAccount(eth.accounts[0])
