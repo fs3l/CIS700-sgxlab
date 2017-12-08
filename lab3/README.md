@@ -96,11 +96,11 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 
 ```
 > eth.accounts[0] # check the account id
-> eth.getBalance() # check the balance for one account, the argument is account id
+> eth.getBalance(<account>) # check the balance for one account, the argument is account id
 > web3.fromWei(<value>,"ether") # convert Wei to Ether
 > web3.toWei(<value>,"ether") #convert Ether to Wei
-> eth.blockNumber # check the toppest block number on the chain
-> eth.getBlock(eth.blockNumber)   # display the certain block 
+> eth.blockNumber # check the latest block number on the chain
+> eth.getBlock(eth.blockNumber-3)  # display a certain block 
 > eth.getBlock('latest', true)	# display the latest block
 > eth.getBlock('pending', true)	# display the pending block
 > eth.sendTransaction({from:"0x0c54f3f7d820bf52344772fa8ed097d1189cd93f", to:"0xda1b60c80502fea9977bab42dcebad05c289dcd2", value:web3.toWei(1,"ether")})
