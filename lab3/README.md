@@ -114,7 +114,7 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 
 **Task 3:** 
 
-1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipent (sellor) of the transaciton.
+1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipent (sellor) of the transaciton. Optionally you can find other students' account on this [[document](https://docs.google.com/document/d/1nI3o1YH-rkAto9iysuExh5PbnFgCAgjFifturm2nQzg/edit?usp=sharing)];
 
 2. Show whether transaction `tx5` is included in the Blockchain; if not wait for a while, check again.
 
