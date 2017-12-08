@@ -36,6 +36,7 @@
 *.swo
 *.swp
 *.swn
+*.bak
 
 lab1/app
 lab2/app
