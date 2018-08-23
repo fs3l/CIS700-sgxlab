@@ -1,0 +1,7 @@
+enclave {
+    include "sgx_eid.h"
+    from "../LocalAttestationCode/LocalAttestationCode.edl" import *;
+    from "sgx_tstdc.edl" import *;
+    trusted{
+    };
+};
