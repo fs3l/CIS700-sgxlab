@@ -1,0 +1,13 @@
+enclave {
+    include "sgx_eid.h"
+    from "../LocalAttestationCode/LocalAttestationCode.edl" import *;
+    from "sgx_tstdc.edl" import *;
+    trusted{
+            public uint32_t start_create_session(sgx_enclave_id_t src_enclave_id, sgx_enclave_id_t dest_enclave_id);
+            public uint32_t enclave_to_enclave_call(sgx_enclave_id_t src_enclave_id, sgx_enclave_id_t dest_enclave_id,uint32_t arg1, uint32_t arg2);
+            public uint32_t start_close_session(sgx_enclave_id_t src_enclave_id, sgx_enclave_id_t dest_enclave_id);
+            public uint32_t exchange_message(sgx_enclave_id_t src_enclave_id, sgx_enclave_id_t dest_enclave_id);
+
+    };
+
+};
