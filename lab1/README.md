@@ -7,6 +7,14 @@ Module 1: Understanding SGX Memory Protection
 2. Linux shell and text editing (e.g. vim or emacs)
 3. SGX SDK sample code (under dir. `intro_sample`)
 
+#### Machine setup
+
+This lab requires the use of a real SGX machine. Make sure you can get access to an SGX machine: `ssh 128.230.209.67`.  You can contact Dr. Tang (through his email: ytang100@syr.edu) for the username and password to access the machine.
+
+If you are off campus, you need to use VPN to first get access to the campus LAN before trying to access the machine.
+
+Once you access the SGX machine, `git clone` this repository to get started on the lab.
+
 #### Tutorial (1)
 
 The tutorial in `intro_lec` presents the SGX programming specification related to ECall and OCall. It is based on sample code in dir. `intro_sample`.
