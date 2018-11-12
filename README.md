@@ -1,5 +1,6 @@
 1.SGX Labs
 ===
+<!--
 
 Setup 
 ---
@@ -11,6 +12,8 @@ Make sure you can get access to an SGX machine: `ssh 128.230.209.67`.  You can c
 If you are off campus, you need to use VPN to first get access to the campus LAN before trying to access the machine.
 
 Once you access the SGX machine, `git clone` this repository to get started on the lab.
+
+
 
 ### Emulator
 
@@ -32,9 +35,8 @@ make r #run user code
 ```bash
 sudo rmmod sgx
 ```
+-->
 
-Labs
----
 
 * Module 1: Understanding SGX Memory Protection [[lab 1](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab/tree/master/lab1/README.md)]
 
