@@ -3,7 +3,7 @@ Module 2: Side-channel Vulnerability and Protection
 
 #### Preparation
 
-1. C/C++ programming
+1. C/C++ programming.
 2. Linux shell and text editing (e.g. vim or emacs)
 3. SGX SDK
 4. Sorting Algorithms 
