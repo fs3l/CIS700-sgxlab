@@ -34,6 +34,7 @@ This lab requires Intel SGX SDK and we provide two options of running SGX; stude
 
 #### Set up the lab
 
+
 After a SGX SDK is installed and running, you should set up the lab and run the given program on the machine.
 
 ```
