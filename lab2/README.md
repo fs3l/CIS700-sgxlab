@@ -4,50 +4,9 @@ Module 2: Side-channel Vulnerability and Protection
 #### Preparation
 
 1. C/C++ programming.
-2. Linux shell and text editing (e.g. vim or emacs)
-3. SGX SDK
-4. Sorting Algorithms 
+2. Knowledge in sorting algorithms 
  
-#### SGX Emulator (1)
-
-1. Install VirtualBox on your local OS.
-2. Download the prebuilt VirtualBox image: [[Google Drive](https://goo.gl/3wLLic)]. The login username and password are both `sgx`.
-    - Note our emulator currently only supports the setting of *64-bit `Ubuntu 14.04.3 LTS` guest OS in VirtualBox*.
-    - Make sure the right Linux version by `uname -r`: `3.19.0-25-generic`
-3. Load the emulator
-```bash
-sudo insmod ~/sgx-emulator/sgx.ko
-lsmod | grep sgx #help you check whether module insert successfully
-```
-4. Run sample code
-```bash
-cd ~/sgx-emulator
-make #compile user code
-make r #run user code
-```
-5. Unload the emulator
-```bash
-sudo rmmod sgx
-```
-
-#### Download Lab2
-
-You can try to use shell command to clone lab repository from GitHub.
-```bash
-git clone https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab.git
-```
-or you may go to [https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab](https://github.com/syracuse-fullstacksecurity/CIS700-sgxlab), and download the repository.
-
-After you downloaded the lab2 folder, you can start to finish lab tasks. Each time before compiling your code, you need to **load the emulator first**. Load procedure mentioned above, _3. Load the emulator_ .
-
-When you confirm emulator loaded, you can use command below to compile and run your code.
-```bash
-cd [your lab directory] #you need to navigate to the lab folder
-make #compile client code
-make r #run client code
-```
-
-#### In-class Lab (2): Leakage of Sorting Algorithms
+#### In-class Lab (1): Leakage of Sorting Algorithms
 
 In a computation, data obliviousness means the data access from the computation is the same no matter what values the input data takes.
 This lab is for you students to understand the data obliviousness of common sorting algorithms, including bubble sort, merge sort, etc. This data-dependency will further make the side-channel attack possible in the enclave computation.
@@ -82,11 +41,11 @@ TrackedList * lptr;
     - Observe the printed access trace
     - Observe whether the access trace changes when you feed different inputs.
      
-#### Homework Lab (3): Other algorithms
+#### Homework Lab (2): Other algorithms
  
 In the in-class exercise, we observe the data obliviousness of merge/bubble sort. In this homework, we try to extend the understanding from obliviousness to side-channel attacks.
 
-To make things concrete, let's talk about a "real" scenario. Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The adversary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
+A "real" scenario is this: Consider your lecturer uploads your grades to the Amazon cloud to do some computation that requires sorting, say computing the medium or max grade. To protect your privacy (under FERPA), the lecture carefully opts in the "enclave" option in cloud processing, that is, to encrypt all students records and have the plaintext computation only inside the remote enclave. In this setting, an adversary, be it Amazon, can (A1) manipulate the encrypted list of student grades and (A2) may know the roaster (student names). The adversary also has the capability of (A3) monitoring the data-access trace from the in-enclave sorting computation. 
 
 ![Sort and Side Channel](./sorting_side_channel.jpg)
 
